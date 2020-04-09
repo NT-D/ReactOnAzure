@@ -11,7 +11,7 @@ TODO: Will paste screen shot here because it makes reader to understand what the
 
 # Technical consideration
 ## Architecture
-
+![Architecture](./document/assets/architecture.png)
 
 ## Language, SDK and utilities
 We uses following language and tools. As prerequistics, please read and try each tools tutorial.
