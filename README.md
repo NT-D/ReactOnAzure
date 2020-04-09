@@ -23,7 +23,7 @@ We uses following language and tools. As prerequistics, please read and try each
 - [React](https://reactjs.org/): JavaScript library for building SPA.
 - [Jest](https://jestjs.io/): JavaScript testing framework. We use it for testing both React components and other codes.
 - [Enzyme](https://enzymejs.github.io/enzyme/): JavaScript testing utility for react. We use it for testing React components. This tool make us to write test for custom component easily.
-- [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js): Microsoft Authentication library. We can get idToken with this SDK and Azure Active Directly. We want to utilize idToken for making secure coneection between backend. 
+- [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js): Microsoft Authentication library. We can get idToken with this SDK and Azure Active Directory. We want to utilize idToken for making secure connection between front-end and back-end. 
 - [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui): We can utilize reusable React components made by Microsoft. This is used in Office 365 and other Microsoft product.
 
 ### Tools for token validation
