@@ -4,7 +4,7 @@ This repository for developers who want to know..
 - How to make connection secure between front-end and back-end with Azure features
 
 ## Background
-SPA is popular in the web development world, but there is few documents/contents to describe how to host production app with Azure features. In addition to it, I and my customers are intersted it to host it on Azure, so we create this sample app.
+SPA is popular in the web development world, but there are few documents/contents to describe how to host production app with Azure features. In addition to it, my customers and I are intersted in hosting SPA on Azure, so we create this sample app.
 
 ## What you can see with demo
 TODO: Will paste screen shot here because it makes reader to understand what they try to reach easily
