@@ -15,11 +15,7 @@
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "jest",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "jest", "prettier"],
   "rules": {
     "@typescript-eslint/no-use-before-define": 0,
     "prettier/prettier": [
