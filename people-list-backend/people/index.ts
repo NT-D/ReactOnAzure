@@ -17,7 +17,6 @@ const createDummyBody = (): User[] => {
 
 const createDummyPresence = (): availability => {
   const randomNumber: number = Math.floor(Math.random() * 10 + 1);
-  if (randomNumber % 2 === 0) return availability.available;
 
-  return availability.busy;
+  return randomNumber % 2 === 0 ? availability.available : availability.busy;
 };
