@@ -1,10 +1,10 @@
 export type User = {
-    id:string,
-    displayName: string,
-    presence: availability 
-}
+  id: string;
+  displayName: string;
+  presence: availability;
+};
 
 export enum availability {
-    available = 'available',
-    busy = 'budy'
+  available = 'available',
+  busy = 'budy',
 }
