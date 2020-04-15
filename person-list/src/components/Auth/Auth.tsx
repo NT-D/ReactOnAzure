@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import classes from './Auth.module.css';
 import * as Msal from 'msal';
-import Button from '../UI/Button/Button';
-import Spinner from '../UI/Spinner/Spinner';
+import { Button } from 'office-ui-fabric-react/lib/Button';
+import { Spinner } from 'office-ui-fabric-react/lib/Spinner';
 
 const msalConfig = {
   auth: {
@@ -16,6 +16,7 @@ const msalConfig = {
 
 const Auth = () => {
   const { setLogin, setLogout } = useContext(AuthContext);
+  const setToken = useState('')[1];
   const [isLoading, setLoading] = useState(false);
   const [error, setErorr] = useState('');
 
@@ -25,6 +26,7 @@ const Auth = () => {
       .loginPopup()
       .then((response: any) => {
         setLogin();
+        setToken(response.idToken);
         localStorage.setItem('token', response.idToken);
       })
       .catch((err: any) => {
@@ -41,11 +43,12 @@ const Auth = () => {
     setLoading(false);
     localStorage.removeItem('token');
     setLogout();
+    setToken('');
   };
 
   let spinner = null;
   if (isLoading) {
-    spinner = <Spinner />;
+    spinner = <Spinner label="Wait, wait..." ariaLive="assertive" labelPosition="right" />;
   }
 
   let errorMessage = null;
@@ -57,8 +60,8 @@ const Auth = () => {
     <div className={classes.Auth}>
       {errorMessage}
       {spinner}
-      <Button clicked={login}>Login</Button>
-      <Button clicked={logout}>Logout</Button>
+      <Button onClick={login}>Login</Button>
+      <Button onClick={logout}>Logout</Button>
     </div>
   );
 };
