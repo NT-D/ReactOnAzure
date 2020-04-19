@@ -5,6 +5,7 @@ import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { getMatchStatusAsync } from './services/personStatusService';
 import UserList from './components/UserList';
 import { User } from './interfaces/User';
+import Auth from './components/Auth/Auth';
 
 // Call API every 5 sec for
 const refreshIntervalMillisecond: number = 10000;
@@ -60,6 +61,7 @@ const App: FC = () => {
   };
   return (
     <div className="App">
+      <Auth />
       <span>Person List</span>
       <Stack data-testid="person-list-stack">
         <UserList users={appState.users} />
