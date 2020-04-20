@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './UserList.css';
-import { Persona, PersonaSize, IPersonaSharedProps } from 'office-ui-fabric-react/lib/Persona';
-import { User } from '../interfaces/User';
+import { Persona, PersonaSize } from 'office-ui-fabric-react/lib/Persona';
+import { User } from '../../interfaces/User';
 import { TestImages } from '@uifabric/example-data';
 
 type UserListProps = {

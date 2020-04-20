@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import classes from './Auth.module.css';
 import * as Msal from 'msal';
-import { Button } from 'office-ui-fabric-react/lib/Button';
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Spinner } from 'office-ui-fabric-react/lib/Spinner';
 
 const msalConfig = {
@@ -60,8 +60,8 @@ const Auth = () => {
     <div className={classes.Auth}>
       {errorMessage}
       {spinner}
-      <Button onClick={login}>Login</Button>
-      <Button onClick={logout}>Logout</Button>
+      <DefaultButton onClick={login}>Login</DefaultButton>
+      <DefaultButton onClick={logout}>Logout</DefaultButton>
     </div>
   );
 };

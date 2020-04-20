@@ -30,6 +30,8 @@
         "semi": true,
         "endOfLine":"auto"
       }
-    ]
+    ],
+    "no-unused-vars":"off",
+    "react/prop-types":"off"
   }
 }
