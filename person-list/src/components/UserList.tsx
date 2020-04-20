@@ -8,10 +8,6 @@ type UserListProps = {
   users: User[];
 };
 
-const examplePersona: IPersonaSharedProps = {
-  secondaryText: 'Software Engineer',
-};
-
 const UserList: FC<UserListProps> = (props) => {
   return (
     <table>
@@ -22,10 +18,9 @@ const UserList: FC<UserListProps> = (props) => {
               <td className="person">
                 <Persona
                   data-testid="person-list-persona"
-                  {...examplePersona}
                   text={user.text}
                   presence={user.presence}
-                  size={PersonaSize.size32}
+                  size={PersonaSize.size40}
                   imageUrl={user.gender === 'female' ? TestImages.personaFemale : TestImages.personaMale}
                 />
               </td>

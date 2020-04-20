@@ -2,7 +2,7 @@ import { fetchPersonStatus, HttpMethod } from './httpService';
 import { PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
 import { User } from '../interfaces/User';
 
-const apiEndpoint: string = process.env.REACT_APP_BACKEND_URL ?? '/api';
+const apiEndpoint: string = process.env.REACT_APP_BACKEND_URL ?? '/api/people';
 
 interface UserPresence {
   id: string;
