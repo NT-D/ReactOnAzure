@@ -10,13 +10,21 @@ export const httpTrigger: AzureFunction = async function (context: Context, req:
 
 const createDummyBody = (): User[] => {
   return [
-    { id: '1', displayName: 'Sinny Pan', presence: createDummyPresence() },
-    { id: '2', displayName: 'Masayuki Ota', presence: createDummyPresence() },
+    { id: '1', displayName: 'Princess Leia', presence: createDummyPresence(), gender: 'female' },
+    { id: '2', displayName: 'Luke Skywalker', presence: createDummyPresence(), gender: 'male' },
+    { id: '3', displayName: 'Han Solo', presence: createDummyPresence(), gender: 'male' },
   ];
 };
 
 const createDummyPresence = (): availability => {
   const randomNumber: number = Math.floor(Math.random() * 10 + 1);
-
-  return randomNumber % 2 === 0 ? availability.available : availability.busy;
+  switch (randomNumber % 3) {
+    case 0:
+      return availability.available;
+    case 1:
+      return availability.busy;
+    case 2:
+    default:
+      return availability.away;
+  }
 };

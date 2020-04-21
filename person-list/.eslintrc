@@ -3,6 +3,11 @@
   "parserOptions": {
     "sourceType": "module"
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "env": {
     "es6": true,
     "node": true,
@@ -25,6 +30,8 @@
         "semi": true,
         "endOfLine":"auto"
       }
-    ]
+    ],
+    "no-unused-vars":"off",
+    "react/prop-types":"off"
   }
 }

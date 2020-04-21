@@ -1,0 +1,33 @@
+table {
+	width: 100%;
+	text-align: center;
+}
+
+table td .ms-Toggle {
+	margin: 0;
+}
+
+table tr .person {
+	width: 90%;
+	position: relative;
+	height: 58px;
+}
+
+table tr .statusToggle {
+	width: 10%;
+    min-width: 45px;
+	text-align: right;
+}
+
+table tr td .ms-Persona {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+
+table tr td .ms-Persona .ms-TooltipHost {
+	font-size: calc(10px + 2vmin);
+}
