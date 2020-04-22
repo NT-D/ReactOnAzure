@@ -17,7 +17,6 @@ const UserList: FC<UserListProps> = (props) => {
             <tr key={user.id}>
               <td className="person">
                 <Persona
-                  data-testid="person-list-persona"
                   text={user.text}
                   presence={user.presence}
                   size={PersonaSize.size40}
