@@ -48,7 +48,7 @@ const App: FC = () => {
     <div className="App">
       <Auth />
       <span>Person List</span>
-      <Stack data-testid="person-list-stack">
+      <Stack>
         <UserList users={appState.users} />
       </Stack>
     </div>
