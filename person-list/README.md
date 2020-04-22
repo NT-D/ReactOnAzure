@@ -33,6 +33,17 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+In thie project, we provide 2 test scripts for differenct usage, please check below:
+```
+"test": "react-scripts test",
+"test:all": "react-scripts test --coverage --watchAll=false",
+```
+**Test Script Usage:**
+
+1. If you wanna do **test only**, just use `npm test`
+2. If you wanna do test with **run coverage report only with files changed since last commit**, use `npm test -- --coverage`
+3. If you wanna do test with **run coverage report with all test files (changed or not)**, use `npm run test:all`
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
