@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import classes from './Auth.module.css';
 import * as Msal from 'msal';
@@ -14,28 +14,14 @@ const msalConfig = {
   },
 };
 
-const Auth = () => {
-  const { setLogin, setLogout } = useContext(AuthContext);
+type AuthProps = {
+  updateLogin: (isLogin: boolean) => void;
+};
+
+const AuthLogOut: FC<AuthProps> = (props) => {
+  const { setLogout } = useContext(AuthContext);
   const setToken = useState('')[1];
   const [isLoading, setLoading] = useState(false);
-  const [error, setErorr] = useState('');
-
-  const login = () => {
-    setLoading(true);
-    return new Msal.UserAgentApplication(msalConfig)
-      .loginPopup()
-      .then((response: any) => {
-        setLogin();
-        setToken(response.idToken);
-        localStorage.setItem('token', response.idToken);
-      })
-      .catch((err: any) => {
-        setErorr(err.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
 
   const logout = async () => {
     setLoading(true);
@@ -44,6 +30,7 @@ const Auth = () => {
     localStorage.removeItem('token');
     setLogout();
     setToken('');
+    props.updateLogin(false);
   };
 
   let spinner = null;
@@ -51,19 +38,13 @@ const Auth = () => {
     spinner = <Spinner label="Wait, wait..." ariaLive="assertive" labelPosition="right" />;
   }
 
-  let errorMessage = null;
-  if (error) {
-    errorMessage = <p>{error}</p>;
-  }
-
   return (
     <div className={classes.Auth}>
-      {errorMessage}
       {spinner}
-      <DefaultButton onClick={login}>Login</DefaultButton>
+      <p>Click to leave Azure AD B2C</p>
       <DefaultButton onClick={logout}>Logout</DefaultButton>
     </div>
   );
 };
 
-export default Auth;
+export default AuthLogOut;

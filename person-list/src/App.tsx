@@ -4,7 +4,8 @@ import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { getMatchStatusAsync } from './services/personStatusService';
 import UserList from './components/UserList/UserList';
 import { User } from './interfaces/User';
-import Auth from './components/Auth/Auth';
+import AuthLogIn from './components/Auth/AuthLogIn';
+import AuthLogOut from './components/Auth/AuthLogOut';
 
 type AppState = {
   isRefreshStop: boolean;
@@ -16,6 +17,11 @@ const App: FC = () => {
     isRefreshStop: false,
     users: [],
   });
+
+  const [isLoggedIn, updateIsLoggedIn] = useState<boolean>(false);
+  const updateLogin = (isLoggedIn: boolean): void => {
+    updateIsLoggedIn(isLoggedIn);
+  };
 
   const refAppState = useRef(appState);
 
@@ -44,13 +50,22 @@ const App: FC = () => {
       console.log(error);
     }
   };
+
   return (
     <div className="App">
-      <Auth />
-      <span>Person List</span>
-      <Stack>
-        <UserList users={appState.users} />
-      </Stack>
+      {isLoggedIn ? (
+        <>
+          <span>Person List</span>
+          <Stack>
+            <UserList users={appState.users} />
+          </Stack>
+          <AuthLogOut updateLogin={updateLogin} />
+        </>
+      ) : (
+        <>
+          <AuthLogIn updateLogin={updateLogin} />
+        </>
+      )}
     </div>
   );
 };

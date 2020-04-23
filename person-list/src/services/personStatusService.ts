@@ -1,4 +1,4 @@
-import { fetchPersonStatus, HttpMethod } from './httpService';
+import { fetchPersonStatus, HttpMethod } from './HttpService';
 import { PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
 import { User } from '../interfaces/User';
 
