@@ -2,7 +2,7 @@ import React, { FC, useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import classes from './Auth.module.css';
 import * as Msal from 'msal';
-import { msalConfig } from '../../setup';
+import { msalConfig } from '../../Settings';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Spinner } from 'office-ui-fabric-react/lib/Spinner';
 
