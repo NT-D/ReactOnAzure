@@ -1,22 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import classes from './Auth.module.css';
 import * as Msal from 'msal';
+import { msalConfig } from '../../Settings';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Spinner } from 'office-ui-fabric-react/lib/Spinner';
 
-const msalConfig = {
-  auth: {
-    clientId: process.env.REACT_APP_CLIENT_ID || '',
-    authority: process.env.REACT_APP_CALL_AUTHORITY || '',
-    validateAuthority: false,
-    redirectUri: process.env.REACT_APP_REDIRECT_URI || '',
-  },
+type AuthProps = {
+  updateLogin: (isLogin: boolean) => void;
 };
 
-const Auth = () => {
-  const { setLogin, setLogout } = useContext(AuthContext);
-  const setToken = useState('')[1];
+const AuthLogIn: FC<AuthProps> = (props) => {
+  const { setLogin } = useContext(AuthContext);
   const [isLoading, setLoading] = useState(false);
   const [error, setErorr] = useState('');
 
@@ -26,8 +21,8 @@ const Auth = () => {
       .loginPopup()
       .then((response: any) => {
         setLogin();
-        setToken(response.idToken);
         localStorage.setItem('token', response.idToken);
+        props.updateLogin(true);
       })
       .catch((err: any) => {
         setErorr(err.message);
@@ -35,15 +30,6 @@ const Auth = () => {
       .finally(() => {
         setLoading(false);
       });
-  };
-
-  const logout = async () => {
-    setLoading(true);
-    new Msal.UserAgentApplication(msalConfig).logout();
-    setLoading(false);
-    localStorage.removeItem('token');
-    setLogout();
-    setToken('');
   };
 
   let spinner = null;
@@ -60,10 +46,10 @@ const Auth = () => {
     <div className={classes.Auth}>
       {errorMessage}
       {spinner}
+      <p>Please Login using Azure AD B2C</p>
       <DefaultButton onClick={login}>Login</DefaultButton>
-      <DefaultButton onClick={logout}>Logout</DefaultButton>
     </div>
   );
 };
 
-export default Auth;
+export default AuthLogIn;

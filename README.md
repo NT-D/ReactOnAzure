@@ -25,6 +25,13 @@ We uses following language and tools. As prerequistics, please read and try each
 - [Enzyme](https://enzymejs.github.io/enzyme/): JavaScript testing utility for react. We use it for testing React components. This tool make us to write test for custom component easily.
 - [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js): Microsoft Authentication library. We can get idToken with this SDK and Azure Active Directory. We want to utilize idToken for making secure connection between front-end and back-end. 
 - [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui): We can utilize reusable React components made by Microsoft. This is used in Office 365 and other Microsoft product.
+### Tools for user authentication
+- [Azure Active Directory B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/): we can utilize AAD B2C to setup and enable required authentication and authorization quickly. In this sample project, we demostrated using basic **Sign-Up-and-Sign-In** flow as entry point of SPA.
+If you're interested in using AAD B2C, please follow below instructions provided by Microsoft to complete setup of Azure AD B2C.
+1. [Create B2C Tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant): create a tenant that manage users and groups in Azure AD.
+2. [Register an Application](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications?tabs=applications): register your application that want to interact with AAD B2C and provide Redirect URI for your application.
+3. [Create User Flows](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows): you can create different user flows for different security purposes. In this project, we're creating **Sign-Up-and-Sign-In** flow, so in the beginning of SPA, it will show login page like below:
+<img src="./document/assets/AADB2C/AADB2C-Login.png" alt="AADB2CLogin" width="400"/>
 
 ### Tools for token validation
 - [Azure API management](https://azure.microsoft.com/en-us/services/api-management/): PaaS service to protect backend APIs. We utilize it to block anonymous request. Backend app returns response if the request has correct idToken.

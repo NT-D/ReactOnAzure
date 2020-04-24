@@ -1,29 +1,29 @@
-import HttpError from "../errors/HttpError";
-import InvalidArgumentError from "../errors/InvalidArgumentError";
+import HttpError from '../errors/HttpError';
+import InvalidArgumentError from '../errors/InvalidArgumentError';
 
 export enum HttpMethod {
-  Get = "Get",
-  Post = "Post",
-  Put = "Put",
-  Delete = "Delete"
+  Get = 'Get',
+  Post = 'Post',
+  Put = 'Put',
+  Delete = 'Delete',
 }
 
 export const fetchPersonStatus = async <T>(
   apiEndpoint: string,
   method: HttpMethod,
   requestHeaders?: Object,
-  body?: {}
+  body?: {},
 ): Promise<T> => {
   let headers = {
-    "Content-Type": "application/json"
+    'Content-Type': 'application/json',
   };
   headers = { ...requestHeaders, ...headers };
 
   const request: RequestInit = {
     method,
     headers,
-    mode: "cors",
-    body: JSON.stringify(body)
+    mode: 'cors',
+    body: JSON.stringify(body),
   };
 
   try {
@@ -37,11 +37,8 @@ export const fetchPersonStatus = async <T>(
       return {} as T;
     }
   } catch (error) {
-   
-    if ((error as HttpError).statusCode === 404)
-      console.error("Please fix to correct endpoint");
+    if ((error as HttpError).statusCode === 404) console.error('Please fix to correct endpoint');
     throw error;
-     
   }
 };
 
@@ -62,7 +59,7 @@ const checkIfExpectedResponse = (method: HttpMethod, response: Response) => {
       break;
     default:
       throw new InvalidArgumentError(
-        "Unexpected http method. You should use correct Http Method (GET, POST, PUT, DELETE)"
+        'Unexpected http method. You should use correct Http Method (GET, POST, PUT, DELETE)',
       );
   }
 
