@@ -2,17 +2,9 @@ import React, { FC, useContext, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 import classes from './Auth.module.css';
 import * as Msal from 'msal';
+import { msalConfig } from '../../setup';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Spinner } from 'office-ui-fabric-react/lib/Spinner';
-
-const msalConfig = {
-  auth: {
-    clientId: process.env.REACT_APP_CLIENT_ID || '',
-    authority: process.env.REACT_APP_CALL_AUTHORITY || '',
-    validateAuthority: false,
-    redirectUri: process.env.REACT_APP_REDIRECT_URI || '',
-  },
-};
 
 type AuthProps = {
   updateLogin: (isLogin: boolean) => void;
@@ -20,7 +12,6 @@ type AuthProps = {
 
 const AuthLogIn: FC<AuthProps> = (props) => {
   const { setLogin } = useContext(AuthContext);
-  const setToken = useState('')[1];
   const [isLoading, setLoading] = useState(false);
   const [error, setErorr] = useState('');
 
@@ -30,7 +21,6 @@ const AuthLogIn: FC<AuthProps> = (props) => {
       .loginPopup()
       .then((response: any) => {
         setLogin();
-        setToken(response.idToken);
         localStorage.setItem('token', response.idToken);
         props.updateLogin(true);
       })
