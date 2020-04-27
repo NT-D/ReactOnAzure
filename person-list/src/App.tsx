@@ -30,10 +30,10 @@ const App: FC = () => {
   }, [appState]);
 
   useEffect(() => {
-    if (!appState.isRefreshStop) {
+    if (!appState.isRefreshStop && isLoggedIn) {
       refreshUserListasync();
     }
-  }, [appState.isRefreshStop]);
+  }, [appState.isRefreshStop, isLoggedIn]);
 
   const refreshUserListasync = async () => {
     const appState = refAppState.current;
