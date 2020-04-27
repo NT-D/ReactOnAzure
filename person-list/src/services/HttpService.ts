@@ -11,11 +11,13 @@ export enum HttpMethod {
 export const fetchPersonStatus = async <T>(
   apiEndpoint: string,
   method: HttpMethod,
+  idToken: string,
   requestHeaders?: Object,
   body?: {},
 ): Promise<T> => {
   let headers = {
     'Content-Type': 'application/json',
+    Authorization: `Bearer ${idToken}`,
   };
   headers = { ...requestHeaders, ...headers };
 

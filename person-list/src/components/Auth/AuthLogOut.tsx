@@ -18,7 +18,6 @@ const AuthLogOut: FC<AuthProps> = (props) => {
     setLoading(true);
     new Msal.UserAgentApplication(msalConfig).logout();
     setLoading(false);
-    localStorage.removeItem('token');
     setLogout();
     props.updateLogin(false);
   };

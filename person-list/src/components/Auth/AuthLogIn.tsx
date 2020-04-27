@@ -21,7 +21,7 @@ const AuthLogIn: FC<AuthProps> = (props) => {
       .loginPopup()
       .then((response: any) => {
         setLogin();
-        localStorage.setItem('token', response.idToken);
+        sessionStorage.setItem('token', response.idToken.rawIdToken);
         props.updateLogin(true);
       })
       .catch((err: any) => {
