@@ -27,6 +27,7 @@ We uses following language and tools. As prerequistics, please read and try each
 - [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui): We can utilize reusable React components made by Microsoft. This is used in Office 365 and other Microsoft product.
 - [SPA Hosted On Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host#configure-static-website-hosting): After configured/enabled static-website setting on the Blob storage, you can easily upload your web content of SPA to `$web` container, then you can access the SPA through the provided endpoint like below:
 <img src="./document/assets/SPAonBlob/SPAonBlob-Setup.png" alt="SPAonBlob-Setup" width="400"/>
+
 ### Tools for user authentication
 - [Azure Active Directory B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/): we can utilize AAD B2C to setup and enable required authentication and authorization quickly. In this sample project, we demostrated using basic **Sign-Up-and-Sign-In** flow as entry point of SPA.
 If you're interested in using AAD B2C, please follow below instructions provided by Microsoft to complete setup of Azure AD B2C.
